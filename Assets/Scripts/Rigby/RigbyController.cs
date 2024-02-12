@@ -24,6 +24,13 @@ public class RigbyController : MonoBehaviour
 
     private bool corriendo = false; // Controla si el personaje está corriendo.
     private float movimientoHorizontal;
+    public static RigbyController instance;
+
+    private void Awake()
+    {
+        instance = this;
+        // Resto del código de inicialización...
+    }
 
     void Start()
     {
