@@ -5,7 +5,8 @@ using System.Collections;
 public class ControladorVidaRigby : MonoBehaviour
 {
     public static ControladorVidaRigby instance;
-    public int VidaActual;
+    public int VidaActual = 3;
+    public int VidaMaxima = 10;
     private TextMeshProUGUI textoVidaActual;
     private bool esInvulnerable = false;
     private float tiempoFinInvencibilidad;
@@ -49,7 +50,6 @@ public class ControladorVidaRigby : MonoBehaviour
             {
                 Debug.Log("El jugador ha muerto."); // Mensaje de depuración
 
-                //gameObject.SetActive(false);
                 LevelManager.instance.RespawnPlayer();
                 VidaActual = 3; 
             }
@@ -95,6 +95,15 @@ public class ControladorVidaRigby : MonoBehaviour
         else
         {
             Debug.LogWarning("El objeto de texto 'Texto Vidas' no se encontró o no tiene el componente TextMeshProUGUI asignado.");
+        }
+    }
+
+    public void AumentarVida()
+    {
+        if (VidaActual < VidaMaxima)
+        {
+            VidaActual++;
+            ActualizarTextoVida();
         }
     }
 }

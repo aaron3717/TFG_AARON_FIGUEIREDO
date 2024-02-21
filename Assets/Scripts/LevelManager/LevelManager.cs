@@ -6,7 +6,7 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
     public float TiempoParaRespawn;
-    
+    public int BilletesRecogidos;    
 
     public void Awake()
     {
@@ -35,7 +35,7 @@ public class LevelManager : MonoBehaviour
             yield return new WaitForSeconds(TiempoParaRespawn);
             RigbyController.instance.gameObject.SetActive(true);
             RigbyController.instance.transform.position = CheckpointController.instance.respawnPoint;
-            ControladorVidaRigby.instance.VidaActual = 3;
+            //ControladorVidaRigby.instance.VidaActual = 3;
             Debug.Log("Respawned with 3 vidas en posición: " + CheckpointController.instance.respawnPoint);
 
         }
