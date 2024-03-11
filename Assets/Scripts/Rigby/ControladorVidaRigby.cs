@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class ControladorVidaRigby : MonoBehaviour
 {
@@ -10,8 +11,8 @@ public class ControladorVidaRigby : MonoBehaviour
     private TextMeshProUGUI textoVidaActual;
     private bool esInvulnerable = false;
     private float tiempoFinInvencibilidad;
-    private Material materialOriginal; // Para almacenar el material original
-    public float opacidadInvulnerable = 0.5f; // Opacidad durante la invulnerabilidad (0.5 = 50%)
+    private Material materialOriginal;
+    public float opacidadInvulnerable = 0.5f;
 
     private void Awake()
     {
@@ -23,8 +24,6 @@ public class ControladorVidaRigby : MonoBehaviour
     {
         VidaActual = 3;
         ActualizarTextoVida();
-
-        // Al inicio, guarda el material original del sprite
         materialOriginal = GetComponent<SpriteRenderer>().material;
     }
 
@@ -33,57 +32,67 @@ public class ControladorVidaRigby : MonoBehaviour
         if (esInvulnerable && Time.time >= tiempoFinInvencibilidad)
         {
             esInvulnerable = false;
-
-            // Restaura el material original cuando termina la invulnerabilidad
             GetComponent<SpriteRenderer>().material = materialOriginal;
         }
-
-        // Resto del código de Update...
     }
 
     public void InfligirDaño()
     {
         if (!esInvulnerable)
         {
-            VidaActual--;
-            if (VidaActual <= 0)
+            if (VidaActual > 0)
             {
-                Debug.Log("El jugador ha muerto."); // Mensaje de depuración
+                VidaActual--;
 
-                LevelManager.instance.RespawnPlayer();
-                VidaActual = 3; 
+                if (VidaActual <= 0)
+                {
+                    // El jugador ha perdido todas las vidas, carga la escena de Game Over
+                    //SceneManager.LoadScene("GameOver"); // Reemplaza "GameOver" con el nombre de tu escena de Game Over
+                    GetComponent<Animator>().SetBool("Daño", true);
+                    StartCoroutine(TransicionAGameOver());
+
+                }
+                else
+                {
+                    Material materialNuevo = new Material(materialOriginal);
+                    Color colorActual = materialNuevo.color;
+                    colorActual.a = opacidadInvulnerable;
+                    materialNuevo.color = colorActual;
+                    GetComponent<SpriteRenderer>().material = materialNuevo;
+
+                    GetComponent<Animator>().SetBool("Daño", true);
+                    StartCoroutine(DetenerAnimacionDeDaño(1f));
+                }
+
+                ActualizarTextoVida();
+                ActivarInvulnerabilidad(3f);
             }
-            else
-            {
-                // Cambiar el material del sprite para ajustar la opacidad
-                Material materialNuevo = new Material(materialOriginal);
-                Color colorActual = materialNuevo.color;
-                colorActual.a = opacidadInvulnerable;
-                materialNuevo.color = colorActual;
-                GetComponent<SpriteRenderer>().material = materialNuevo;
-
-                // Activar la animación de daño
-                GetComponent<Animator>().SetBool("Daño", true);
-
-                // Detener la animación de daño después de 1.5 segundos
-                StartCoroutine(DetenerAnimacionDeDaño(1f)); // Cambia el tiempo de espera a 1.5 segundos
-            }
-
-            ActualizarTextoVida();
-            ActivarInvulnerabilidad(3f); // Cambia el tiempo de invulnerabilidad a 3 segundos
         }
+    }
+
+    IEnumerator TransicionAGameOver()
+    {
+        yield return new WaitForSeconds(0.5f); // Espera medio segundo antes de la transición
+
+        UiController.instance.PasaraNegro(); // Inicia la transición a negro
+
+        // Espera un tiempo breve antes de cargar la escena Game Over
+        yield return new WaitForSeconds(1.0f); // Ajusta el tiempo de espera según tus preferencias
+
+        // Carga la escena de Game Over
+        SceneManager.LoadScene("GameOver"); // Reemplaza "GameOver" con el nombre de tu escena de Game Over
     }
 
     private IEnumerator DetenerAnimacionDeDaño(float espera)
     {
-        yield return new WaitForSeconds(espera); // Esperar 1.5 segundos
-        GetComponent<Animator>().SetBool("Daño", false); // Desactivar la animación de daño
+        yield return new WaitForSeconds(espera);
+        GetComponent<Animator>().SetBool("Daño", false);
     }
 
     void ActivarInvulnerabilidad(float duracion)
     {
         esInvulnerable = true;
-        tiempoFinInvencibilidad = Time.time + duracion; // Duración de la invencibilidad: 3 segundos
+        tiempoFinInvencibilidad = Time.time + duracion;
     }
 
     void ActualizarTextoVida()

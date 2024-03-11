@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ZonaDeMuerte : MonoBehaviour
 {
@@ -6,11 +7,20 @@ public class ZonaDeMuerte : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Restar una vida al jugador
+            // Resta una vida al jugador.
             ControladorVidaRigby.instance.InfligirDaño();
 
-            // Respawnea al jugador en el último punto de control (checkpoint) activado
-            LevelManager.instance.RespawnPlayer();
+            // Verifica si el jugador ha tocado un checkpoint.
+            if (CheckpointController.instance != null)
+            {
+                // Respawn en el último checkpoint tocado.
+                LevelManager.instance.RespawnPlayer();
+            }
+            else
+            {
+                // Si no hay checkpoint, respawn al principio del nivel.
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
     }
 }

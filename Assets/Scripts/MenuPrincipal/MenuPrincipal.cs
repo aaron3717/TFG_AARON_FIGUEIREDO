@@ -5,15 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class MenuPrincipal : MonoBehaviour
 {
-    public string escena1;
+    public string Nivel1;
+    public static MenuPrincipal instance;
 
-    public void StartGame()
+    public void Awake()
     {
-        SceneManager.LoadScene(escena1);
+        instance = this;
     }
-    public void QuitGame()
+
+    public void IniciarJuego()
     {
-        Debug.Log("Quitting the game");
-        Application.Quit(); 
+        SceneManager.LoadScene(Nivel1);
+    }
+
+
+    public void SalirJuego()
+    {
+        Debug.Log("Saliendo del juego");
+        Application.Quit();
     }
 }

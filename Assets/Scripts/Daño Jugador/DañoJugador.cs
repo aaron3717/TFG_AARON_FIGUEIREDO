@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DañoJugador : MonoBehaviour
@@ -7,19 +5,27 @@ public class DañoJugador : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            ControladorVidaRigby.instance.InfligirDaño();
+            if (ControladorVidaRigby.instance != null)
+            {
+                ControladorVidaRigby.instance.InfligirDaño();
+            }
+            else
+            {
+                Debug.LogError("ControladorVidaRigby.instance es nulo en DañoJugador.");
+            }
         }
-    }   
+    }
 }

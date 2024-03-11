@@ -5,45 +5,62 @@ using UnityEngine.SceneManagement;
 
 public class MenuPausa : MonoBehaviour
 {
-    public string elegirNivel, escena1;
+    public static MenuPausa Instance;
+    public string SeleccionNivel, EscenaMenuPrincipal;
     public GameObject Pausa;
-    public bool isPausa;
+    public bool estaEnPausa;
+    private bool botonesInteractuables = true;
 
-    void Start()
+
+    void Awake()
     {
-        
+        Instance = this;
     }
 
     void Update()
     {
-        if(Input.GetButton("Menu"))
+        if (Input.GetButton("Menu"))
         {
+            Debug.Log("Update de MenuPausa"); // Agrega este log para verificar que la función se está ejecutando.
             PausaEnPausa();
-            Debug.Log("Escape a sido presionado");
+            Debug.Log("Escape ha sido presionado");
         }
     }
+
     public void PausaEnPausa()
-        //sirve para que el tiempo no siga corriendo al pausar
-    { 
-        if (isPausa)
+    {
+        // Sirve para que el tiempo no siga corriendo al pausar
+        if (estaEnPausa)
         {
-            isPausa = false;
+            estaEnPausa = false;
             Pausa.SetActive(false);
-            Time.timeScale = 1f;  
+            Time.timeScale = 1f;
         }
         else
         {
-            isPausa = true;
+            estaEnPausa = true;
             Pausa.SetActive(true);
             Time.timeScale = 0f;
         }
+        Debug.Log("parar/contunar");
     }
-    public void ElegirNivel()
+
+    public void SeleccionarNivel()
     {
-        SceneManager.LoadScene(elegirNivel);
+        SceneManager.LoadScene(SeleccionNivel);
+        Time.timeScale = 1f;
+        Debug.Log("seleccion de nivel");
     }
-    public void Menu()
+
+    public void MenuPrincipal()
     {
-        SceneManager.LoadScene(escena1);
+      SceneManager.LoadScene(EscenaMenuPrincipal);
+        Time.timeScale = 1f;
+        Debug.Log("menu principal");
+    }
+    public void TransicionTerminada()
+    {
+        // Permite que los botones sean interactuables después de la transición.
+        botonesInteractuables = true;
     }
 }
