@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class RigbyController : MonoBehaviour
 {
@@ -40,7 +39,7 @@ public class RigbyController : MonoBehaviour
 
     void Update()
     {
-        if (!MenuPausa.Instance.estaEnPausa) 
+        if (!MenuPausa.Instance.estaEnPausa)
         {
             // Detectar movimiento horizontal.
             movimientoHorizontal = Input.GetAxis("Horizontal");
@@ -74,7 +73,6 @@ public class RigbyController : MonoBehaviour
             // Actualizar el parámetro "Corriendo" en el Animator.
             anim.SetBool("corriendo", corriendo);
 
-
             // Obtener la entrada de movimiento horizontal y vertical.
             float movimientoVertical = Input.GetAxis("Vertical");
 
@@ -103,8 +101,8 @@ public class RigbyController : MonoBehaviour
             {
                 if (isGrounded)
                 {
-                    rb.velocity = new Vector2(rb.velocity.x, fuerzaSalto);
-                    anim.SetBool("Saltar", true); // Activa la animación de salto.
+                    rb.velocity =  new Vector2(rb.velocity.x, fuerzaSalto);
+                    //anim.SetBool("Saltar", true); // Activa la animación de salto.
                 }
                 else
                 {
@@ -112,18 +110,21 @@ public class RigbyController : MonoBehaviour
                     {
                         rb.velocity = new Vector2(rb.velocity.x, fuerzaSalto);
                         dobleSalto = false;
-                        anim.SetBool("Saltar", true); // Activa la animación de salto.
+                        //anim.SetBool("Saltar", true); // Activa la animación de salto.
                     }
                 }
             }
-            else
-            {
-                anim.SetBool("Saltar", false); // Desactiva la animación de salto cuando no estás saltando.
-            }
+            //else
+            //{
+                //anim.SetBool("Saltar", false); // Desactiva la animación de salto cuando no estás saltando.
+            //}
         }
-        
     }
-
+    public void ActivarAnimacionVictoria()
+    {
+        // Activa el Trigger "Victoria" en el Animator.
+        anim.SetTrigger("victoria");
+    }
     void FixedUpdate()
     {
         if (!corriendo && movimientoHorizontal == 0)

@@ -9,7 +9,7 @@ public class MenuPausa : MonoBehaviour
     public string SeleccionNivel, EscenaMenuPrincipal;
     public GameObject Pausa;
     public bool estaEnPausa;
-    private bool botonesInteractuables = true;
+    //private bool botonesInteractuables = true;
 
 
     void Awake()
@@ -61,6 +61,6 @@ public class MenuPausa : MonoBehaviour
     public void TransicionTerminada()
     {
         // Permite que los botones sean interactuables después de la transición.
-        botonesInteractuables = true;
+        //botonesInteractuables = true;
     }
 }
