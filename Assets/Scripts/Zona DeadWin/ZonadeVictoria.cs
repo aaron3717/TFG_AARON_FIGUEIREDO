@@ -1,13 +1,11 @@
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ZonaVictoria : MonoBehaviour
 {
-    public GameObject nivelCompletadoText; // Asigna el GameObject del texto de "Nivel Completado" en el Inspector.
+    public GameObject nivelCompletadoText;
+    public Tiempo tiemposcript;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -16,11 +14,17 @@ public class ZonaVictoria : MonoBehaviour
             if (playerController != null)
             {
                 playerController.ActivarAnimacionVictoria();
-                // Activa el GameObject de texto "Nivel Completado" para mostrar el mensaje.
                 nivelCompletadoText.SetActive(true);
+                GetComponent<Collider2D>().enabled = false;
             }
+
+            if (tiemposcript != null)
+            {
+                tiemposcript.DetenerContador();
+                Debug.Log("Deteniendo contador desde ZonaVictoria");
+            }
+
+            Debug.Log("Zona de victoria tocada por el jugador.");
         }
     }
 }
-
-

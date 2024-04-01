@@ -25,6 +25,8 @@ public class RigbyController : MonoBehaviour
     private float movimientoHorizontal;
     public static RigbyController instance;
 
+    public bool PararMovimiento;
+
     private void Awake()
     {
         instance = this;
@@ -39,7 +41,7 @@ public class RigbyController : MonoBehaviour
 
     void Update()
     {
-        if (!MenuPausa.Instance.estaEnPausa)
+        if (!MenuPausa.Instance.estaEnPausa && !PararMovimiento)
         {
             // Detectar movimiento horizontal.
             movimientoHorizontal = Input.GetAxis("Horizontal");

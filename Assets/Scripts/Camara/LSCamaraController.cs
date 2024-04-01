@@ -1,0 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class LSCamaraController : MonoBehaviour
+{
+    public Vector2 minPos, maxPos;
+    public Transform Player;
+    void Start()
+    {
+        
+    }
+
+    void LateUpdate()
+    {
+        float xPos = Mathf.Clamp(Player.position.x,minPos.x,maxPos.x);
+        float yPos = Mathf.Clamp(Player.position.y,minPos.y,maxPos.y);
+
+        transform.position = new Vector3(xPos,yPos,transform.position.z);
+    }
+}

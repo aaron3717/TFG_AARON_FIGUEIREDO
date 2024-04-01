@@ -30,7 +30,7 @@ public class GameOver : MonoBehaviour
         // Después de realizar cualquier lógica necesaria, carga la escena actual para reiniciar el nivel
         // Carga la escena del nivel 1
         Debug.Log("ReiniciarNivel() llamado.");
-        SceneManager.LoadScene("Nivel1");
+        SceneManager.LoadScene("1-1");
 
     }
 

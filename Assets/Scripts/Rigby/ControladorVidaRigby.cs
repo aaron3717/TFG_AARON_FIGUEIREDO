@@ -99,7 +99,7 @@ public class ControladorVidaRigby : MonoBehaviour
     {
         if (textoVidaActual != null)
         {
-            textoVidaActual.text = " X " + VidaActual.ToString();
+            textoVidaActual.text =  VidaActual.ToString();
         }
         else
         {
