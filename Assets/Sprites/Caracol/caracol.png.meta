@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a54279b4b269dc74e98aa93a2a2eef38
+guid: d6e6b559cbfcad94ba120d5a2b18c8a7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,10 +69,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 16384
-    resizeAlgorithm: 0
+    maxTextureSize: 1024
+    resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,190 +110,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MenuPrincipal_0
+      name: caracol_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 7
+        y: 71
+        width: 44
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 010b1529bcfe9bc4a91166f7b847a4c8
+      internalID: -1962235766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caracol_1
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 71
+        width: 42
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e9e833a8b18805498e37b90e785af5e
+      internalID: 1523001606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caracol_2
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 71
+        width: 42
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 540d6dd068b4d824c8fc01d9d7fcf362
+      internalID: -1998140394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caracol_3
+      rect:
+        serializedVersion: 2
+        x: 18
         y: 0
-        width: 431
-        height: 241
+        width: 24
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ab176eeb4a6a7540b0badd8911a88f8
-      internalID: -640554274
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MenuPrincipal_1
-      rect:
-        serializedVersion: 2
-        x: 541
-        y: 127
-        width: 215
-        height: 46
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5604e110597f1c84e901121c8f8f9b94
-      internalID: 584582154
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MenuPrincipal_2
-      rect:
-        serializedVersion: 2
-        x: 71
-        y: 486
-        width: 166
-        height: 135
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8e459f42364fbe24abacab4bfdefb0e2
-      internalID: 171801550
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MenuPrincipal_3
-      rect:
-        serializedVersion: 2
-        x: 527
-        y: 623
-        width: 259
-        height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bf3d01ab59bbe1a4584cb494d25a64ed
-      internalID: 1013157718
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MenuPrincipal_4
-      rect:
-        serializedVersion: 2
-        x: 250
-        y: 481
-        width: 169
-        height: 138
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b1a729e10ed51d947baf8d344cc4d8c2
-      internalID: 1968937968
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MenuPrincipal_5
-      rect:
-        serializedVersion: 2
-        x: 88
-        y: 413
-        width: 57
-        height: 66
-      alignment: 9
-      pivot: {x: 0.45654765, y: 0.51876324}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1296b60a0ba0b20428f4a2d0552b033b
-      internalID: -1459720854
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MenuPrincipal_6
-      rect:
-        serializedVersion: 2
-        x: 435
-        y: 244
-        width: 426
-        height: 236
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 025139d5b05665d42837790926e28044
-      internalID: -900744917
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MenuPrincipal_7
-      rect:
-        serializedVersion: 2
-        x: 865
-        y: 244
-        width: 102
-        height: 247
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f2a5b8b77ae6f141b7982725365de4b
-      internalID: 1386856044
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MenuPrincipal_8
-      rect:
-        serializedVersion: 2
-        x: 871
-        y: 0
-        width: 314
-        height: 244
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c2aab353e3837cb48be7756e726cb708
-      internalID: -1688502243
+      spriteID: 39123aa88300dfb4a90c48f65954eeea
+      internalID: 1856982992
       vertices: []
       indices: 
       edges: []
@@ -309,15 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MenuPrincipal_0: -640554274
-      MenuPrincipal_1: 584582154
-      MenuPrincipal_2: 171801550
-      MenuPrincipal_3: 1013157718
-      MenuPrincipal_4: 1968937968
-      MenuPrincipal_5: -1459720854
-      MenuPrincipal_6: -900744917
-      MenuPrincipal_7: 1386856044
-      MenuPrincipal_8: -1688502243
+      caracol_0: -1962235766
+      caracol_1: 1523001606
+      caracol_2: -1998140394
+      caracol_3: 1856982992
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

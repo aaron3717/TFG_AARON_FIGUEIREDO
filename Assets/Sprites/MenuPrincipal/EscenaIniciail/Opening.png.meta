@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a54279b4b269dc74e98aa93a2a2eef38
+guid: b080ecebacd63104685137d169f65d6e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 90
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,190 +110,190 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MenuPrincipal_0
+      name: Opening_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 431
-        height: 241
+        x: 4
+        y: 6782
+        width: 425
+        height: 233
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ab176eeb4a6a7540b0badd8911a88f8
-      internalID: -640554274
+      spriteID: 4df446a955fc6c94290e16cdeea5d099
+      internalID: 1337885805
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MenuPrincipal_1
+      name: Opening_1
       rect:
         serializedVersion: 2
-        x: 541
-        y: 127
-        width: 215
-        height: 46
+        x: 434
+        y: 6842
+        width: 231
+        height: 174
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5604e110597f1c84e901121c8f8f9b94
-      internalID: 584582154
+      spriteID: c4e8a5993925b7040ab27e72101f8de9
+      internalID: -308040890
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MenuPrincipal_2
+      name: Opening_2
       rect:
         serializedVersion: 2
-        x: 71
-        y: 486
-        width: 166
-        height: 135
+        x: 5
+        y: 6540
+        width: 425
+        height: 233
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e459f42364fbe24abacab4bfdefb0e2
-      internalID: 171801550
+      spriteID: 55c469d09c2af274f9159c84f358b51b
+      internalID: -589012796
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MenuPrincipal_3
+      name: Opening_3
       rect:
         serializedVersion: 2
-        x: 527
-        y: 623
-        width: 259
-        height: 47
+        x: 534
+        y: 6575
+        width: 172
+        height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf3d01ab59bbe1a4584cb494d25a64ed
-      internalID: 1013157718
+      spriteID: 30a395a973d505d4490385320f9c2375
+      internalID: -1423205372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MenuPrincipal_4
+      name: Opening_4
       rect:
         serializedVersion: 2
-        x: 250
-        y: 481
-        width: 169
-        height: 138
+        x: 32
+        y: 6295
+        width: 396
+        height: 145
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 2, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1a729e10ed51d947baf8d344cc4d8c2
-      internalID: 1968937968
+      spriteID: 4128f4ca23cf8cf4cb7d074aa6640f6c
+      internalID: -1088525200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MenuPrincipal_5
+      name: Opening_5
       rect:
         serializedVersion: 2
-        x: 88
-        y: 413
-        width: 57
-        height: 66
-      alignment: 9
-      pivot: {x: 0.45654765, y: 0.51876324}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1296b60a0ba0b20428f4a2d0552b033b
-      internalID: -1459720854
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MenuPrincipal_6
-      rect:
-        serializedVersion: 2
-        x: 435
-        y: 244
-        width: 426
+        x: 437
+        y: 6297
+        width: 428
         height: 236
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 025139d5b05665d42837790926e28044
-      internalID: -900744917
+      spriteID: f96a330595ecfb043ad5444b444329f2
+      internalID: 1137254057
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MenuPrincipal_7
+      name: Opening_6
       rect:
         serializedVersion: 2
-        x: 865
-        y: 244
-        width: 102
-        height: 247
+        x: 4
+        y: 6059
+        width: 433
+        height: 231
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f2a5b8b77ae6f141b7982725365de4b
-      internalID: 1386856044
+      spriteID: ec09819c65df49b488b642cbe4864be2
+      internalID: 1460921926
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MenuPrincipal_8
+      name: Opening_7
       rect:
         serializedVersion: 2
-        x: 871
-        y: 0
-        width: 314
-        height: 244
+        x: 694
+        y: 6095
+        width: 173
+        height: 195
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2aab353e3837cb48be7756e726cb708
-      internalID: -1688502243
+      spriteID: c23f9982194390f4a85510c4a20b8844
+      internalID: -835055539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Opening_8
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 5817
+        width: 383
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b195b5046356eba47998f987bcdcfc60
+      internalID: 89121809
       vertices: []
       indices: 
       edges: []
@@ -309,15 +309,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MenuPrincipal_0: -640554274
-      MenuPrincipal_1: 584582154
-      MenuPrincipal_2: 171801550
-      MenuPrincipal_3: 1013157718
-      MenuPrincipal_4: 1968937968
-      MenuPrincipal_5: -1459720854
-      MenuPrincipal_6: -900744917
-      MenuPrincipal_7: 1386856044
-      MenuPrincipal_8: -1688502243
+      Opening_0: 1337885805
+      Opening_1: -308040890
+      Opening_2: -589012796
+      Opening_3: -1423205372
+      Opening_4: -1088525200
+      Opening_5: 1137254057
+      Opening_6: 1460921926
+      Opening_7: -835055539
+      Opening_8: 89121809
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

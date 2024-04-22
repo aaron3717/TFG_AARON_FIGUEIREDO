@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a54279b4b269dc74e98aa93a2a2eef38
+guid: c2d6eb78cc999514981486ded6888a8e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,10 +69,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 16384
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,190 +110,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MenuPrincipal_0
+      name: efectoexplosion_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 19
         y: 0
-        width: 431
-        height: 241
+        width: 24
+        height: 24
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ab176eeb4a6a7540b0badd8911a88f8
-      internalID: -640554274
+      spriteID: e7b21020a505d3546897c0cd8aea429d
+      internalID: -1332624726
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MenuPrincipal_1
+      name: efectoexplosion_1
       rect:
         serializedVersion: 2
-        x: 541
-        y: 127
-        width: 215
-        height: 46
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5604e110597f1c84e901121c8f8f9b94
-      internalID: 584582154
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MenuPrincipal_2
-      rect:
-        serializedVersion: 2
-        x: 71
-        y: 486
-        width: 166
-        height: 135
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8e459f42364fbe24abacab4bfdefb0e2
-      internalID: 171801550
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MenuPrincipal_3
-      rect:
-        serializedVersion: 2
-        x: 527
-        y: 623
-        width: 259
-        height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bf3d01ab59bbe1a4584cb494d25a64ed
-      internalID: 1013157718
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MenuPrincipal_4
-      rect:
-        serializedVersion: 2
-        x: 250
-        y: 481
-        width: 169
-        height: 138
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b1a729e10ed51d947baf8d344cc4d8c2
-      internalID: 1968937968
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MenuPrincipal_5
-      rect:
-        serializedVersion: 2
-        x: 88
-        y: 413
-        width: 57
-        height: 66
-      alignment: 9
-      pivot: {x: 0.45654765, y: 0.51876324}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1296b60a0ba0b20428f4a2d0552b033b
-      internalID: -1459720854
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MenuPrincipal_6
-      rect:
-        serializedVersion: 2
-        x: 435
-        y: 244
-        width: 426
-        height: 236
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 025139d5b05665d42837790926e28044
-      internalID: -900744917
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MenuPrincipal_7
-      rect:
-        serializedVersion: 2
-        x: 865
-        y: 244
-        width: 102
-        height: 247
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f2a5b8b77ae6f141b7982725365de4b
-      internalID: 1386856044
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MenuPrincipal_8
-      rect:
-        serializedVersion: 2
-        x: 871
+        x: 81
         y: 0
-        width: 314
-        height: 244
+        width: 28
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2aab353e3837cb48be7756e726cb708
-      internalID: -1688502243
+      spriteID: d26391b9b74a27441b6e0e676f20074a
+      internalID: 949056521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: efectoexplosion_2
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 29
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 912bed1e176976f498e1aa9e7101b988
+      internalID: -311067810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: efectoexplosion_3
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 4
+        width: 27
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a141ad3fee17814380f0d3c4296975f
+      internalID: 1085538212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: efectoexplosion_4
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 8
+        width: 28
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce29b70a165267541b9e768e6344813b
+      internalID: 1097907742
       vertices: []
       indices: 
       edges: []
@@ -309,15 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MenuPrincipal_0: -640554274
-      MenuPrincipal_1: 584582154
-      MenuPrincipal_2: 171801550
-      MenuPrincipal_3: 1013157718
-      MenuPrincipal_4: 1968937968
-      MenuPrincipal_5: -1459720854
-      MenuPrincipal_6: -900744917
-      MenuPrincipal_7: 1386856044
-      MenuPrincipal_8: -1688502243
+      efectoexplosion_0: -1332624726
+      efectoexplosion_1: 949056521
+      efectoexplosion_2: -311067810
+      efectoexplosion_3: 1085538212
+      efectoexplosion_4: 1097907742
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

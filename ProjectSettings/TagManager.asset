@@ -5,15 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - UI
+  - Enemigo
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - Rigby
-  - Ground
+  - Enemigo
   - 
   - 
   - 
@@ -50,4 +51,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: enemigos
+    uniqueID: 636840139
     locked: 0
