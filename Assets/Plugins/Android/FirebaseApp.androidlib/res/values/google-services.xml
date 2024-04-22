@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id">
+  <string name="gcm_defaultSenderId" translatable="false">66550668976</string>
+  <string name="google_storage_bucket" translatable="false">unityfirebase-64dca.appspot.com</string>
+  <string name="project_id" translatable="false">unityfirebase-64dca</string>
+  <string name="google_api_key" translatable="false">AIzaSyDcKZTzFQsZqPDEhj8LCeyBo1LBYd7vfAM</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDcKZTzFQsZqPDEhj8LCeyBo1LBYd7vfAM</string>
+  <string name="google_app_id" translatable="false">1:66550668976:android:f398758fa15749e496e575</string>
+</resources>
