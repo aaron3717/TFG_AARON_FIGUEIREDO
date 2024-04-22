@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Device;
 
 public class RigbyController : MonoBehaviour
 {
@@ -11,24 +12,33 @@ public class RigbyController : MonoBehaviour
     [Header("Salto")]
     public float fuerzaSalto;
     private bool dobleSalto;
+    public bool estaSaltando;
+    public float rebotef;
 
     [Header("Componentes")]
     public Rigidbody2D rb;
     public Animator anim;
 
     [Header("Detectar Suelo")]
-    private bool isGrounded;
+    public bool isGrounded;
     public Transform groundCheck;
     public LayerMask WhatIsGround;
 
-    private bool corriendo = false; // Controla si el personaje está corriendo.
-    private float movimientoHorizontal;
+
+
+    public bool corriendo = false; // Controla si el personaje está corriendo.
+    public float movimientoHorizontal;
     public static RigbyController instance;
 
     public bool PararMovimiento;
+   
+
+
 
     private void Awake()
     {
+        QualitySettings.vSyncCount = 0;
+        UnityEngine.Application.targetFrameRate = -1;
         instance = this;
         // Resto del código de inicialización...
     }
@@ -36,7 +46,7 @@ public class RigbyController : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        velocidadActual = VelocidadMovimiento; // Inicializa la velocidad actual como la velocidad de movimiento inicial.
+        velocidadActual = VelocidadMovimiento; 
     }
 
     void Update()
@@ -49,23 +59,23 @@ public class RigbyController : MonoBehaviour
             // Control de animación de movimiento.
             if (movimientoHorizontal != 0)
             {
-                anim.SetBool("Movimiento", true); // Si hay movimiento, activa la animación de "Andar".
+                anim.SetBool("Movimiento", true); 
 
                 // Cambiar la dirección del personaje.
                 if (movimientoHorizontal > 0)
                 {
                     // Mover hacia la derecha.
-                    transform.localRotation = Quaternion.Euler(0, 0, 0); // Sin rotación.
+                    transform.localRotation = Quaternion.Euler(0, 0, 0); 
                 }
                 else if (movimientoHorizontal < 0)
                 {
                     // Mover hacia la izquierda.
-                    transform.localRotation = Quaternion.Euler(0, 180, 0); // Invertir la dirección en el eje Y.
+                    transform.localRotation = Quaternion.Euler(0, 180, 0); 
                 }
             }
             else
             {
-                anim.SetBool("Movimiento", false); // Si no hay movimiento, desactiva la animación de "Andar".
+                anim.SetBool("Movimiento", false); 
             }
 
             // Control de correr.
@@ -104,6 +114,7 @@ public class RigbyController : MonoBehaviour
                 if (isGrounded)
                 {
                     rb.velocity =  new Vector2(rb.velocity.x, fuerzaSalto);
+                    estaSaltando = true; // El jugador está saltando
                     //anim.SetBool("Saltar", true); // Activa la animación de salto.
                 }
                 else
@@ -112,20 +123,25 @@ public class RigbyController : MonoBehaviour
                     {
                         rb.velocity = new Vector2(rb.velocity.x, fuerzaSalto);
                         dobleSalto = false;
-                        //anim.SetBool("Saltar", true); // Activa la animación de salto.
+                        estaSaltando = true; // El jugador está saltando
                     }
                 }
             }
-            //else
-            //{
-                //anim.SetBool("Saltar", false); // Desactiva la animación de salto cuando no estás saltando.
-            //}
+            else if (isGrounded)
+            {
+                estaSaltando = false; // El jugador no está saltando
+            }
         }
+    
     }
     public void ActivarAnimacionVictoria()
     {
         // Activa el Trigger "Victoria" en el Animator.
         anim.SetTrigger("victoria");
+    }
+    public void Rebote()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, rebotef);
     }
     void FixedUpdate()
     {

@@ -9,7 +9,7 @@ public class ControladorVidaRigby : MonoBehaviour
     public int VidaActual = 3;
     public int VidaMaxima = 10;
     private TextMeshProUGUI textoVidaActual;
-    private bool esInvulnerable = false;
+    public bool esInvulnerable = false;
     private float tiempoFinInvencibilidad;
     private Material materialOriginal;
     public float opacidadInvulnerable = 0.5f;
@@ -46,8 +46,7 @@ public class ControladorVidaRigby : MonoBehaviour
 
                 if (VidaActual <= 0)
                 {
-                    // El jugador ha perdido todas las vidas, carga la escena de Game Over
-                    //SceneManager.LoadScene("GameOver"); // Reemplaza "GameOver" con el nombre de tu escena de Game Over
+                 
                     GetComponent<Animator>().SetBool("Daño", true);
                     StartCoroutine(TransicionAGameOver());
 
@@ -72,15 +71,15 @@ public class ControladorVidaRigby : MonoBehaviour
 
     IEnumerator TransicionAGameOver()
     {
-        yield return new WaitForSeconds(0.5f); // Espera medio segundo antes de la transición
+        yield return new WaitForSeconds(0.5f); 
 
-        UiController.instance.PasaraNegro(); // Inicia la transición a negro
+        UiController.instance.PasaraNegro(); 
 
-        // Espera un tiempo breve antes de cargar la escena Game Over
-        yield return new WaitForSeconds(1.0f); // Ajusta el tiempo de espera según tus preferencias
+       
+        yield return new WaitForSeconds(1.0f); 
 
-        // Carga la escena de Game Over
-        SceneManager.LoadScene("GameOver"); // Reemplaza "GameOver" con el nombre de tu escena de Game Over
+       
+        SceneManager.LoadScene("GameOver"); 
     }
 
     private IEnumerator DetenerAnimacionDeDaño(float espera)

@@ -5,6 +5,7 @@ public class GameOver : MonoBehaviour
 {
     public float tiempoDeEspera = 1.5f; // Tiempo de espera antes de reiniciar el nivel
     public static GameOver instance;
+    public string SeleccionNivel;
 
     private void Awake()
     {
@@ -17,21 +18,13 @@ public class GameOver : MonoBehaviour
             Destroy(gameObject); // Evita la creación de instancias adicionales
         }
     }
-    private void Start()
-    {
-        // Inicia la transición de negro a transparente al cargar la escena de GameOver
-        UiController.instance.PasaraNegro();
-    }
 
     public void ReiniciarNivel()
     {
-        // Agrega aquí cualquier lógica adicional que necesites antes de reiniciar el nivel, como restablecer variables, reiniciar posiciones, etc.
+        PlayerPrefs.SetString("CurrentLevel", SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SeleccionNivel);
 
-        // Después de realizar cualquier lógica necesaria, carga la escena actual para reiniciar el nivel
-        // Carga la escena del nivel 1
         Debug.Log("ReiniciarNivel() llamado.");
-        SceneManager.LoadScene("1-1");
-
     }
 
     public void MenuPrincipal()

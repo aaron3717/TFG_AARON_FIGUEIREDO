@@ -2,29 +2,19 @@ using UnityEngine;
 
 public class DañoJugador : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    public Collider2D colliderEnemigo; // Referencia al collider del enemigo.
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            if (ControladorVidaRigby.instance != null)
+            //Obtén el componente de salud del jugador
+            ControladorVidaRigby saludJugador = other.GetComponent<ControladorVidaRigby>();
+
+            // Si el jugador tiene un componente de salud, le aplicamos daño
+            if (saludJugador != null)
             {
-                ControladorVidaRigby.instance.InfligirDaño();
-            }
-            else
-            {
-                Debug.LogError("ControladorVidaRigby.instance es nulo en DañoJugador.");
+                saludJugador.InfligirDaño(); // Llama al método RecibirDaño del jugador
             }
         }
     }
