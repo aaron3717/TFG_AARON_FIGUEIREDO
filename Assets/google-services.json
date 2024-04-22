@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "66550668976",
+    "project_id": "unityfirebase-64dca",
+    "storage_bucket": "unityfirebase-64dca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:66550668976:android:f398758fa15749e496e575",
+        "android_client_info": {
+          "package_name": "com.regularshow.firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcKZTzFQsZqPDEhj8LCeyBo1LBYd7vfAM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
