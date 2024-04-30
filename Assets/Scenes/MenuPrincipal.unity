@@ -1801,7 +1801,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1745685309}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 40f22e6e2c9d1f647a9a1cbe9baa07a5, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 22698d1b346927e4794e10d65e8faaa4, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 38850576}
@@ -1819,7 +1819,7 @@ VideoPlayer:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: 
+  m_Url: file://C:/Users/aaron/Desktop/Regular Show/MenuPrincipal/escenainicial/presentacion.mp4
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1

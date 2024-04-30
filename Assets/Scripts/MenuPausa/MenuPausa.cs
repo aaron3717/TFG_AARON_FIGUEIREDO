@@ -8,9 +8,8 @@ public class MenuPausa : MonoBehaviour
     public static MenuPausa Instance;
     public string SeleccionNivel, EscenaMenuPrincipal;
     public GameObject Pausa;
+    public GameObject panelOpciones;
     public bool estaEnPausa;
-    //private bool botonesInteractuables = true;
-
 
     void Awake()
     {
@@ -21,15 +20,18 @@ public class MenuPausa : MonoBehaviour
     {
         if (Input.GetButton("Menu"))
         {
-            Debug.Log("Update de MenuPausa"); // Agrega este log para verificar que la función se está ejecutando.
             PausaEnPausa();
-            Debug.Log("Escape ha sido presionado");
         }
+    }
+
+    void Start()
+    {
+        // Desactiva el panel de opciones y sus botones al inicio
+        //panelOpciones.SetActive(false);
     }
 
     public void PausaEnPausa()
     {
-        // Sirve para que el tiempo no siga corriendo al pausar
         if (estaEnPausa)
         {
             estaEnPausa = false;
@@ -42,7 +44,6 @@ public class MenuPausa : MonoBehaviour
             Pausa.SetActive(true);
             Time.timeScale = 0f;
         }
-        Debug.Log("parar/contunar");
     }
 
     public void SeleccionarNivel()
@@ -50,18 +51,21 @@ public class MenuPausa : MonoBehaviour
         PlayerPrefs.SetString("CurrentLevel", SceneManager.GetActiveScene().name);
         SceneManager.LoadScene(SeleccionNivel);
         Time.timeScale = 1f;
-        Debug.Log("seleccion de nivel");
     }
 
     public void MenuPrincipal()
     {
-      SceneManager.LoadScene(EscenaMenuPrincipal);
+        SceneManager.LoadScene(EscenaMenuPrincipal);
         Time.timeScale = 1f;
-        Debug.Log("menu principal");
     }
-    public void TransicionTerminada()
+
+    public void MostrarOpciones()
     {
-        // Permite que los botones sean interactuables después de la transición.
-        //botonesInteractuables = true;
+        // Activa el panel de opciones y desactiva el menú de pausa
+        
+        panelOpciones.SetActive(true);
+        Pausa.SetActive(false);
+
+        Debug.Log("Panel de opciones mostrado.");
     }
 }

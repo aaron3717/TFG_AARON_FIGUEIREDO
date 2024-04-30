@@ -9,8 +9,8 @@ VideoClipImporter:
   colorSpace: 0
   deinterlace: 0
   encodeAlpha: 0
-  flipVertical: 0
-  flipHorizontal: 0
+  flipVertical: 1
+  flipHorizontal: 1
   importAudio: 1
   targetSettings:
     0:
@@ -25,6 +25,15 @@ VideoClipImporter:
     1:
       enableTranscoding: 1
       codec: 1
+      resizeFormat: 0
+      aspectRatio: 0
+      customWidth: 1280
+      customHeight: 720
+      bitrateMode: 2
+      spatialQuality: 2
+    7:
+      enableTranscoding: 1
+      codec: 3
       resizeFormat: 0
       aspectRatio: 0
       customWidth: 1280
