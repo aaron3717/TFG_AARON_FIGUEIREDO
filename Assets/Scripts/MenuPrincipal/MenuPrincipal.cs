@@ -10,8 +10,8 @@ public class MenuPrincipal : MonoBehaviour
     public GameObject fondo2;
     public static MenuPrincipal instance;
     public GameObject BotonContinuar;
+    
 
-   
 
     void Awake()
     {
@@ -79,5 +79,20 @@ public class MenuPrincipal : MonoBehaviour
     {
         Debug.Log("Saliendo del juego");
         Application.Quit();
+    }
+    public void SaltarVideo()
+    {
+        if (escenaInicio != null)
+        {
+            escenaInicio.SetActive(false); // Desactivar el video
+        }
+        else
+        {
+            Debug.LogError("No se ha asignado el GameObject de escenaInicio en el inspector.");
+            return;
+        }
+
+        SceneManager.LoadScene(LS); // Cargar la escena de selección de nivel
+        PlayerPrefs.DeleteAll();
     }
 }

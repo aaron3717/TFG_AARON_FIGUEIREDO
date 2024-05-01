@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class MenuPausa : MonoBehaviour
 {
     public static MenuPausa Instance;
     public string SeleccionNivel, EscenaMenuPrincipal;
     public GameObject Pausa;
-    public GameObject panelOpciones;
+    public GameObject PanelOpciones;
     public bool estaEnPausa;
+
 
     void Awake()
     {
@@ -26,8 +27,7 @@ public class MenuPausa : MonoBehaviour
 
     void Start()
     {
-        // Desactiva el panel de opciones y sus botones al inicio
-        //panelOpciones.SetActive(false);
+
     }
 
     public void PausaEnPausa()
@@ -61,11 +61,26 @@ public class MenuPausa : MonoBehaviour
 
     public void MostrarOpciones()
     {
-        // Activa el panel de opciones y desactiva el menú de pausa
-        
-        panelOpciones.SetActive(true);
+        PanelOpciones.SetActive(true);
         Pausa.SetActive(false);
-
-        Debug.Log("Panel de opciones mostrado.");
     }
+
+    //SALIR DE LOS MENUS 
+    public void Retroceder()
+    {
+        Pausa.SetActive(true);
+        Debug.Log("Saliendo del menú de opciones"); 
+
+        if (PanelOpciones != null && PanelOpciones.activeSelf)
+        {
+            PanelOpciones.SetActive(false);
+        }
+        else
+        {
+            Debug.LogWarning("El panel de opciones no está asignado o ya está desactivado.");
+        }
+
+  
+    }
+
 }

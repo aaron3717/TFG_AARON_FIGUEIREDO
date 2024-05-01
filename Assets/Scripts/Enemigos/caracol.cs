@@ -26,7 +26,7 @@ public class caracol : MonoBehaviour
     public float probabilidadDejarObjeto = 0.5f; // Probabilidad de dejar el objeto (0 a 1)
 
 
-    private bool golpeadoPorJugador = false;
+   // private bool golpeadoPorJugador = false;
     public GameObject detectorColision; // Objeto auxiliar para detectar colisión con el jugador
 
     void Start()
