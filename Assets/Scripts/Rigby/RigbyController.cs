@@ -1,13 +1,13 @@
 using UnityEngine;
-using System.Collections;
-using UnityEngine.Device;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class RigbyController : MonoBehaviour
 {
     [Header("Movimiento")]
     public float VelocidadMovimiento;
     public float VelocidadCorrer;
-    private float velocidadActual; // Variable para controlar la velocidad actual.
+    private float velocidadActual;
 
     [Header("Salto")]
     public float fuerzaSalto;
@@ -24,131 +24,217 @@ public class RigbyController : MonoBehaviour
     public Transform groundCheck;
     public LayerMask WhatIsGround;
 
+    [Header("Controles")]
+    public Button Izda;
+    public Button Dcha;
+    public Button Salto;
+    public Button Correr;
 
+    private bool mIzda = false;
+    private bool mDcha = false;
+    private bool corriendo = false;
+    public bool PararMovimiento;
 
-    public bool corriendo = false; // Controla si el personaje está corriendo.
     public float movimientoHorizontal;
     public static RigbyController instance;
-
-    public bool PararMovimiento;
-   
-
-
 
     private void Awake()
     {
         QualitySettings.vSyncCount = 0;
-        UnityEngine.Application.targetFrameRate = -1;
+        Application.targetFrameRate = -1;
         instance = this;
-        // Resto del código de inicialización...
     }
 
     void Start()
     {
         anim = GetComponent<Animator>();
-        velocidadActual = VelocidadMovimiento; 
+        velocidadActual = VelocidadMovimiento;
+
+        // Evento de Boton
+        Izda.gameObject.AddComponent<Botones>().Initialize(MovIzda, PararMovIzda);
+        Dcha.gameObject.AddComponent<Botones>().Initialize(MovDcha, PararMovDcha);
+        Salto.onClick.AddListener(ManejarSalto);
+        Correr.onClick.AddListener(ManCorrer);
     }
 
     void Update()
     {
         if (!MenuPausa.Instance.estaEnPausa && !PararMovimiento)
         {
-            // Detectar movimiento horizontal.
+            // Detectar movimiento horizontal desde el teclado y los botones
             movimientoHorizontal = Input.GetAxis("Horizontal");
+            if (mIzda)
+            {
+                movimientoHorizontal = -1f;
+            }
+            else if (mDcha)
+            {
+                movimientoHorizontal = 1f;
+            }
 
             // Control de animación de movimiento.
-            if (movimientoHorizontal != 0)
-            {
-                anim.SetBool("Movimiento", true); 
+            ActualizarAnimacionMovimiento();
 
-                // Cambiar la dirección del personaje.
-                if (movimientoHorizontal > 0)
-                {
-                    // Mover hacia la derecha.
-                    transform.localRotation = Quaternion.Euler(0, 0, 0); 
-                }
-                else if (movimientoHorizontal < 0)
-                {
-                    // Mover hacia la izquierda.
-                    transform.localRotation = Quaternion.Euler(0, 180, 0); 
-                }
-            }
-            else
+            // Control de correr con teclado
+            if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
             {
-                anim.SetBool("Movimiento", false); 
+                corriendo = true;
+                ActualizarAnimacionCorrer();
+            }
+            if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
+            {
+                corriendo = false;
+                ActualizarAnimacionCorrer();
             }
 
-            // Control de correr.
-            // Detectar si el jugador presiona la tecla Shift para correr.
-            corriendo = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-
-            // Actualizar el parámetro "Corriendo" en el Animator.
-            anim.SetBool("corriendo", corriendo);
-
-            // Obtener la entrada de movimiento horizontal y vertical.
-            float movimientoVertical = Input.GetAxis("Vertical");
+            // Control de correr con botón
+            ActualizarAnimacionCorrer();
 
             // Calcular la velocidad de movimiento en base a si está corriendo o no.
             float velocidad = corriendo ? VelocidadCorrer : VelocidadMovimiento;
 
             // Calcular el vector de movimiento.
-            Vector3 movimiento = new Vector3(movimientoHorizontal, 0f, movimientoVertical) * velocidad;
+            Vector3 movimiento = new Vector3(movimientoHorizontal, 0f, 0f) * velocidad;
 
             // Aplicar el movimiento al personaje.
             rb.velocity = new Vector2(movimiento.x, rb.velocity.y);
 
+            // Detectar si está en el suelo.
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, .2f, WhatIsGround);
+            ActualizarAnimacionSuelo();
 
-            if (isGrounded)
-            {
-                dobleSalto = true;
-                anim.SetBool("EnElSuelo", true); // Activa la animación de "EnElSuelo" cuando está en el suelo.
-            }
-            else
-            {
-                anim.SetBool("EnElSuelo", false); // Desactiva la animación de "EnElSuelo" cuando no está en el suelo.
-            }
-
+            // Manejar el salto desde el teclado
             if (Input.GetButtonDown("Jump"))
             {
-                if (isGrounded)
-                {
-                    rb.velocity =  new Vector2(rb.velocity.x, fuerzaSalto);
-                    estaSaltando = true; // El jugador está saltando
-                    //anim.SetBool("Saltar", true); // Activa la animación de salto.
-                }
-                else
-                {
-                    if (dobleSalto)
-                    {
-                        rb.velocity = new Vector2(rb.velocity.x, fuerzaSalto);
-                        dobleSalto = false;
-                        estaSaltando = true; // El jugador está saltando
-                    }
-                }
-            }
-            else if (isGrounded)
-            {
-                estaSaltando = false; // El jugador no está saltando
+                ManejarSalto();
             }
         }
-    
     }
-    public void ActivarAnimacionVictoria()
-    {
-        // Activa el Trigger "Victoria" en el Animator.
-        anim.SetTrigger("victoria");
-    }
-    public void Rebote()
-    {
-        rb.velocity = new Vector2(rb.velocity.x, rebotef);
-    }
+
     void FixedUpdate()
     {
         if (!corriendo && movimientoHorizontal == 0)
         {
-            // Si no se está corriendo y no hay entrada de movimiento, detener el personaje.
             rb.velocity = new Vector2(0f, rb.velocity.y);
         }
+    }
+
+    // Controles Teclado + Anim
+    private void ActualizarAnimacionMovimiento()
+    {
+        if (movimientoHorizontal != 0)
+        {
+            anim.SetBool("Movimiento", true);
+
+            // Cambiar la dirección del personaje.
+            if (movimientoHorizontal > 0)
+            {
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
+            }
+            else if (movimientoHorizontal < 0)
+            {
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
+            }
+        }
+        else
+        {
+            anim.SetBool("Movimiento", false);
+        }
+    }
+
+    private void ActualizarAnimacionCorrer()
+    {
+        anim.SetBool("corriendo", corriendo);
+    }
+
+    private void ActualizarAnimacionSuelo()
+    {
+        if (isGrounded)
+        {
+            dobleSalto = true;
+            anim.SetBool("EnElSuelo", true);
+        }
+        else
+        {
+            anim.SetBool("EnElSuelo", false);
+        }
+    }
+
+    public void ActivarAnimacionVictoria()
+    {
+        anim.SetTrigger("victoria");
+    }
+
+    public void Rebote()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, rebotef);
+    }
+
+    // Controles Botones
+    private void ManejarSalto()
+    {
+        if (isGrounded)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, fuerzaSalto);
+            estaSaltando = true;
+        }
+        else
+        {
+            if (dobleSalto)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, fuerzaSalto);
+                dobleSalto = false;
+                estaSaltando = true;
+            }
+        }
+    }
+
+    private void ManCorrer()
+    {
+        corriendo = !corriendo;
+        ActualizarAnimacionCorrer();
+    }
+
+    public void MovIzda(bool move)
+    {
+        mIzda = move;
+    }
+
+    public void MovDcha(bool move)
+    {
+        mDcha = move;
+    }
+
+    public void PararMovIzda()
+    {
+        mIzda = false;
+    }
+
+    public void PararMovDcha()
+    {
+        mDcha = false;
+    }
+}
+
+// PRESIONAR BOTONES
+public class Botones : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+{
+    private System.Action<bool> onPointerDown;
+    private System.Action onPointerUp;
+
+    public void Initialize(System.Action<bool> onPointerDown, System.Action onPointerUp)
+    {
+        this.onPointerDown = onPointerDown;
+        this.onPointerUp = onPointerUp;
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        onPointerDown(true);
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        onPointerUp();
     }
 }
