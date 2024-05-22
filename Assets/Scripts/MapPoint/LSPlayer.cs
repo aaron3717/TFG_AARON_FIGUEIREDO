@@ -50,12 +50,16 @@ public class LSPlayer : MonoBehaviour
             if (currentPoint.EsNivel && currentPoint.NivelaCargar != "" && !currentPoint.Bloqueado)
             {
                 TransicionLS.instance.MostrarInfo(currentPoint);
+                //TransicionLS.instance.MostrarNuevoPanel(currentPoint);
                 if (Input.GetButtonDown("Jump"))
                 {
                     CargandoNivel = true;
                     theManager.LoadLevel();
                 }
             }
+            if (currentPoint.EsFin )
+                TransicionLS.instance.MostrarNuevoPanel(currentPoint);
+            
         }
     }
 
@@ -63,5 +67,6 @@ public class LSPlayer : MonoBehaviour
     {
         currentPoint = siguientePunto;
         TransicionLS.instance.OcultarInfo();
+        TransicionLS.instance.OcultarNuevoPanel(); 
     }
 }
