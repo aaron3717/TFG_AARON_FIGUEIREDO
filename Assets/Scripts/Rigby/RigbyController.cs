@@ -21,8 +21,10 @@ public class RigbyController : MonoBehaviour
 
     [Header("Detectar Suelo")]
     public bool isGrounded;
+    public bool isOnPlatform;
     public Transform groundCheck;
     public LayerMask WhatIsGround;
+    public LayerMask WhatIsPlatform;
 
     [Header("Controles")]
     public Button Izda;
@@ -99,8 +101,9 @@ public class RigbyController : MonoBehaviour
             // Aplicar el movimiento al personaje.
             rb.velocity = new Vector2(movimiento.x, rb.velocity.y);
 
-            // Detectar si está en el suelo.
+            // Detectar si está en el suelo o en una plataforma.
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, .2f, WhatIsGround);
+            isOnPlatform = Physics2D.OverlapCircle(groundCheck.position, .2f, WhatIsPlatform);
             ActualizarAnimacionSuelo();
 
             // Manejar el salto desde el teclado
@@ -149,7 +152,7 @@ public class RigbyController : MonoBehaviour
 
     private void ActualizarAnimacionSuelo()
     {
-        if (isGrounded)
+        if (isGrounded || isOnPlatform)
         {
             dobleSalto = true;
             anim.SetBool("EnElSuelo", true);
@@ -173,7 +176,7 @@ public class RigbyController : MonoBehaviour
     // Controles Botones
     private void ManejarSalto()
     {
-        if (isGrounded)
+        if (isGrounded || isOnPlatform)
         {
             rb.velocity = new Vector2(rb.velocity.x, fuerzaSalto);
             estaSaltando = true;
@@ -213,6 +216,22 @@ public class RigbyController : MonoBehaviour
     public void PararMovDcha()
     {
         mDcha = false;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            transform.parent = collision.transform; // Para moverse con la plataforma si se está moviendo
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            transform.parent = null; // Despegarse de la plataforma cuando se sale de ella
+        }
     }
 }
 

@@ -12244,7 +12244,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1012494637
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: -726195083, guid: e1bb123858cc6cc43b019cd2381e37ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -12909,7 +12909,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1012494637
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: -726195083, guid: e1bb123858cc6cc43b019cd2381e37ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -13014,9 +13014,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2156286516076103251, guid: 2e7409a52ff1b1043a020a39a9d4f007, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3592631500661403936, guid: 2e7409a52ff1b1043a020a39a9d4f007, type: 3}
       propertyPath: m_Name
       value: UI Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5402183412829871021, guid: 2e7409a52ff1b1043a020a39a9d4f007, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13208,7 +13216,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1012494637
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: -726195083, guid: e1bb123858cc6cc43b019cd2381e37ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
