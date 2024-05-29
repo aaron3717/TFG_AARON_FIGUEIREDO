@@ -12002,6 +12002,10 @@ PrefabInstance:
       propertyPath: fuerzaSalto
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5637371980004907884, guid: 4d077658126bbc44cb3ac15243e63f9b, type: 3}
+      propertyPath: WhatIsPlatform.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1465697922882630729, guid: 4d077658126bbc44cb3ac15243e63f9b, type: 3}
     m_RemovedGameObjects: []
