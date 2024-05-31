@@ -15,14 +15,17 @@ public class PickUp : MonoBehaviour
         {
             if (isBillete)
             {
+                Debug.Log("Billete recogido");
                 LevelManager.instance.BilletesRecogidos++;
                 // Actualiza el texto del contador de billetes
                 UiController.instance.contadorBilletes.text = LevelManager.instance.BilletesRecogidos.ToString() + "$";
-
+                AudioManager.instance.PlaySFX(1); // Sonido de billete recogido
             }
             else if (isCura)
             {
+                Debug.Log("Cura recogida");
                 ControladorVidaRigby.instance.AumentarVida();
+                AudioManager.instance.PlaySFX(0); // Sonido de cura recogida
             }
 
             isRecogido = true;

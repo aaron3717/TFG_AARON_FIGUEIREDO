@@ -7,6 +7,7 @@ public class ZonaVictoria : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        AudioManager.instance.StopMusic();
         if (other.CompareTag("Player"))
         {
             RigbyController playerController = other.GetComponent<RigbyController>();

@@ -9,6 +9,7 @@ public class LSManager : MonoBehaviour
     private MapPoint[] allPoints;
     void Start()
     {
+        AudioManager.instance.StopMusic();
         allPoints = FindObjectsOfType<MapPoint>();
         if (PlayerPrefs.HasKey("CurrentLevel"))
         {
@@ -34,6 +35,8 @@ public class LSManager : MonoBehaviour
     public IEnumerator LoadLevelCO()
     {
         yield return new WaitForSeconds(1f);
+        AudioManager.instance.StopMusic();
+
         SceneManager.LoadScene(Player.currentPoint.NivelaCargar);
     }
 }

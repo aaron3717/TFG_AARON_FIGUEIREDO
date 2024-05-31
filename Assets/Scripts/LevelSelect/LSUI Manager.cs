@@ -19,13 +19,14 @@ public class TransicionLS : MonoBehaviour
 
     private void Awake()
     {
+        AudioManager.instance.StopMusic();
         instance = this;
         PasaraBlanco();
     }
 
     void Start()
     {
-
+        AudioManager.instance.StopMusic();
     }
 
     void Update()
@@ -58,6 +59,7 @@ public class TransicionLS : MonoBehaviour
 
     public void PasaraBlanco()
     {
+        AudioManager.instance.StopMusic();
         pasarablanco = true;
         pasaranegro = false;
 

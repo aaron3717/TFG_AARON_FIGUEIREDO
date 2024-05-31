@@ -11,6 +11,7 @@ public class TransicionGO : MonoBehaviour
 
     void Start()
     {
+        AudioManager.instance.StopMusic();
         // Comenzar con el fondo 1 activado 
         Fondo1.SetActive(true);
         PanelOpciones.SetActive(false);

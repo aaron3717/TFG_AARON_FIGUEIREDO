@@ -15,6 +15,7 @@ public class Checkpoint : MonoBehaviour
             CheckpointController.instance.DesactivarCheckpoints();
             // Cambiar el sprite a "On" cuando se active el checkpoint
             srenderer.sprite = cpOn;
+            AudioManager.instance.PlaySFX(4);
             CheckpointController.instance.SetRespawnPoint(transform.position);
             Debug.Log("Checkpoint activado en posición: " + transform.position);
 

@@ -16,6 +16,7 @@ public class DañoJugador : MonoBehaviour
             {
                 saludJugador.InfligirDaño(); // Llama al método RecibirDaño del jugador
             }
+
         }
     }
 }

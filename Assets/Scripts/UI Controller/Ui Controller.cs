@@ -13,6 +13,7 @@ public class UiController : MonoBehaviour
     public float VelocidadTransicion = 2f ;
     private bool pasaranegro, pasarablanco;
 
+
     private void Awake()
     {
         instance = this;

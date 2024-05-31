@@ -51,7 +51,7 @@ public class RigbyController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         velocidadActual = VelocidadMovimiento;
-
+        // Llamar al método PlayMusic del AudioManager para reproducir la música de fondo al iniciar el juego.
         // Evento de Boton
         Izda.gameObject.AddComponent<Botones>().Initialize(MovIzda, PararMovIzda);
         Dcha.gameObject.AddComponent<Botones>().Initialize(MovDcha, PararMovDcha);
@@ -180,6 +180,8 @@ public class RigbyController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, fuerzaSalto);
             estaSaltando = true;
+            AudioManager.instance.PlaySFX(2); // Índice 2 es el sonido de salto
+
         }
         else
         {
@@ -188,6 +190,8 @@ public class RigbyController : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, fuerzaSalto);
                 dobleSalto = false;
                 estaSaltando = true;
+                AudioManager.instance.PlaySFX(2); // Índice 2 es el sonido de salto
+
             }
         }
     }

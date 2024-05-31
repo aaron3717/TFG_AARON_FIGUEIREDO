@@ -18,6 +18,7 @@ public class MapPoint : MonoBehaviour
 
     void Start()
     {
+        AudioManager.instance.StopMusic();
         // Obtener el componente SpriteRenderer si el nivel está desbloqueado
         if (!Bloqueado)
         {

@@ -49,6 +49,8 @@ public class ControladorVidaRigby : MonoBehaviour
                  
                     GetComponent<Animator>().SetBool("Daño", true);
                     StartCoroutine(TransicionAGameOver());
+                    
+
 
                 }
                 else
@@ -61,6 +63,7 @@ public class ControladorVidaRigby : MonoBehaviour
 
                     GetComponent<Animator>().SetBool("Daño", true);
                     StartCoroutine(DetenerAnimacionDeDaño(1f));
+                    AudioManager.instance.PlaySFX(6);
                 }
 
                 ActualizarTextoVida();
@@ -112,6 +115,8 @@ public class ControladorVidaRigby : MonoBehaviour
         {
             VidaActual++;
             ActualizarTextoVida();
+            AudioManager.instance.PlaySFX(0);
+
         }
     }
 }

@@ -6,9 +6,15 @@ public class GameOver : MonoBehaviour
     public float tiempoDeEspera = 1.5f; // Tiempo de espera antes de reiniciar el nivel
     public static GameOver instance;
     public string SeleccionNivel;
-
-    private void Awake()
+    void Start()
     {
+        AudioManager.instance.StopMusic();
+
+        AudioManager.instance.PlaySFX(8);
+    }
+        private void Awake()
+    {
+        AudioManager.instance.StopMusic();
         if (instance == null)
         {
             instance = this;
@@ -18,12 +24,13 @@ public class GameOver : MonoBehaviour
             Destroy(gameObject); // Evita la creación de instancias adicionales
         }
     }
-
+    
     public void ReiniciarNivel()
     {
+        Debug.Log("Reiniciando nivel...");
+        AudioManager.instance.StopMusic();
         PlayerPrefs.SetString("CurrentLevel", SceneManager.GetActiveScene().name);
         SceneManager.LoadScene(SeleccionNivel);
-
         Debug.Log("ReiniciarNivel() llamado.");
     }
 
